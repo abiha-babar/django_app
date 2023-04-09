@@ -35,9 +35,8 @@ def signup(request):
         username = request.POST.get('username', None)
         email = request.POST.get('email', None)
         password = request.POST.get('password', None)
-
+        user=None
         try:
-            pass
             user = User.objects.create_user(username=username, email=email, password=password, is_active=True)
             user.save()
 
@@ -45,6 +44,9 @@ def signup(request):
             return render(request, 'signup.html', {'error': e})
         
         send_signup_email(username, email)
+        # login(request, user)
+        # send_signin_email(username, user.email)
+        # return redirect('/')
 
         return render(request, 'signin.html', {'success': f'User with email {email} has been registered successfully, Please login to continue'})
 
@@ -58,7 +60,7 @@ def signin(request):
     if request.method == 'POST':
         username = request.POST.get('username', None)
         password = request.POST.get('password', None)
-        print(username, password)
+        # print(username, password)
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)

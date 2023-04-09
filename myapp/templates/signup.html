@@ -6,7 +6,7 @@
             <div class="form-wrapper p-5">
                 <h2 class="form-heading mb-4">Sign Up</h2>
                 {% if error %}
-                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            <div class="alert alert-danger" role="alert">{{ error }}</div>
                 {% endif %}
                 <form method="post" action="{% url 'signup' %}">
                     {% csrf_token %}
