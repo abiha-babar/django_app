@@ -38,7 +38,7 @@ EMAIL_HOST_PASSWORD = 'nborlmqdycwcuyhh'
 
 # Application definition
 
-ALLOWED_HOSTS = ['abihababar.pythonanywhere.com']
+ALLOWED_HOSTS = ['abihababar.pythonanywhere.com', '127.0.0.1' ]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
